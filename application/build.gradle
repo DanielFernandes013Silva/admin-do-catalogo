@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.admin.catologo.application'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(project(':domain'))
+
+    implementation("io.vavr:vavr:0.10.7")
+
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:6.0.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.0")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.20.0")
+
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
