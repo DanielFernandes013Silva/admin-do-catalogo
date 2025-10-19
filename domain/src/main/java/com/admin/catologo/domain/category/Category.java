@@ -4,6 +4,7 @@ import com.admin.catologo.domain.AggregateRoot;
 import com.admin.catologo.domain.validation.ValidationHandler;
 
 import java.time.Instant;
+import java.util.Objects;
 
 public class Category extends AggregateRoot<CategoryID> {
 
@@ -28,8 +29,8 @@ public class Category extends AggregateRoot<CategoryID> {
         this.name = aName;
         this.description = aDescription;
         this.active = isActive;
-        this.createdAt = aCreationDate;
-        this.updatedAt = aUpdateDate;
+        this.createdAt = Objects.requireNonNull(aCreationDate,"'createdAt' should not be null");
+        this.updatedAt = Objects.requireNonNull(aUpdateDate,"'updatedAt' should not be null");;
         this.deletedAt = aDeleteDate;
     }
 
