@@ -39,12 +39,14 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-undertow")
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
 
+    testImplementation('org.flywaydb:flyway-core')
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
     testRuntimeOnly('com.h2database:h2')
 }
 
 flyway {
+    cleanDisabled = false
     url = System.getenv('FLYWAY_DB') ?: 'jdbc:mysql://localhost:3306/adm_videos'
     user = System.getenv('FLYWAY_USER') ?: 'root'
     password = System.getenv('FLYWAY_PASS') ?: '123456'
